@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as employeeAction from "../../store/actions/employeeAction";
+import * as loginAction from "../../store/actions/loginAction";
 import TableData from "../../components/TableData";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/Filter";
@@ -152,12 +153,15 @@ class EmployeeList extends Component {
             <h2>
               <span style={{ float: "left" }}>Employee List</span>
             </h2>
-            <button className="logout">Logout</button>
+            <button className="logout" onClick={() => this.props.onLogout()}>
+              Logout
+            </button>
           </div>
           <br /> <br />
-          <br />
           <div>
-            <SearchBar handleQuickSearch={this.handleQuickSearch}></SearchBar>
+            <span style={{ width: "50%" }}>
+              <SearchBar handleQuickSearch={this.handleQuickSearch}></SearchBar>
+            </span>
             <span style={{ width: "50%" }}>
               <label style={{ marginLeft: "20px" }}>Filter By:</label>{" "}
               <Filter
@@ -166,7 +170,6 @@ class EmployeeList extends Component {
               ></Filter>
             </span>
           </div>
-          <br />
           <div>
             <table>
               <thead>{this.renderTableHeader()}</thead>
@@ -189,7 +192,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    onGetEmployeeList: () => dispatch(employeeAction.getAllEmployeeList())
+    onGetEmployeeList: () => dispatch(employeeAction.getAllEmployeeList()),
+    onLogout: () => dispatch(loginAction.logout())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList);

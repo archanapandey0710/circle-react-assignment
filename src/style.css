@@ -21,6 +21,16 @@ tr:hover {
   background-color: #5ca9f1;
   color: #ffffff;
 }
+/* Full-width inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 /* Set a style for all buttons */
 button {
   background-color: #1565c0;
@@ -68,7 +78,7 @@ select {
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
-  width: 50%;
+  width: 50% !important;
   background: #f1f1f1;
 }
 .sortIcon {
@@ -88,4 +98,27 @@ select {
 .inactiveStatus {
   color: red;
   font-weight: bold;
+}
+.loginContainer {
+  width: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+.headingLabel {
+  font-weight: bold;
+  float: left;
 }
