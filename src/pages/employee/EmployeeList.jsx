@@ -4,6 +4,8 @@ import * as employeeAction from "../../store/actions/employeeAction";
 import TableData from "../../components/TableData";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/Filter";
+import SortIcon from "../../components/SortIcon";
+
 import _ from "lodash";
 
 class EmployeeList extends Component {
@@ -87,16 +89,7 @@ class EmployeeList extends Component {
       });
     }
   };
-  isVisibleIcon = value => {
-    if (this.state.sortColName.toString() === value.toString()) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-  getIcon = () => {
-    return this.state.sortOrder;
-  };
+
   sortTable = (sortColName, sortOrder) => {
     if (this.state.empList.length > 0) {
       let sortedEmployeeList = this.sortData(
@@ -127,37 +120,6 @@ class EmployeeList extends Component {
     }
     return sortedList;
   };
-  renderIcon = value => {
-    if (value) {
-      if (this.isVisibleIcon(value)) {
-        return (
-          <span>
-            {this.getIcon().toString() === "asc" ? (
-              <i
-                class="fa fa-long-arrow-up"
-                aria-hidden="true"
-                onClick={() => this.sortTable(value, "asc")}
-              />
-            ) : (
-              <i
-                class="fa fa-long-arrow-down"
-                aria-hidden="true"
-                onClick={() => this.sortTable(value, "desc")}
-              />
-            )}
-          </span>
-        );
-      } else {
-        return (
-          <i
-            class="fa fa-long-arrow-down"
-            aria-hidden="true"
-            onClick={() => this.sortTable(value, "desc")}
-          />
-        );
-      }
-    }
-  };
   render() {
     return (
       <React.Fragment>
@@ -185,10 +147,42 @@ class EmployeeList extends Component {
           <div>
             <table>
               <thead>
-                <th>Name {this.renderIcon("name")}</th>
-                <th>Date of Birth {this.renderIcon("dob")}</th>
-                <th>Age {this.renderIcon("age")}</th>
-                <th>Salary {this.renderIcon("salary")}</th>
+                <th>
+                  Name{" "}
+                  <SortIcon
+                    value="name"
+                    sortColName={this.state.sortColName}
+                    sortOrder={this.state.sortOrder}
+                    handleSortTable={this.sortTable}
+                  ></SortIcon>
+                </th>
+                <th>
+                  Date of Birth{" "}
+                  <SortIcon
+                    value="dob"
+                    sortColName={this.state.sortColName}
+                    sortOrder={this.state.sortOrder}
+                    handleSortTable={this.sortTable}
+                  ></SortIcon>
+                </th>
+                <th>
+                  Age{" "}
+                  <SortIcon
+                    value="age"
+                    sortColName={this.state.sortColName}
+                    sortOrder={this.state.sortOrder}
+                    handleSortTable={this.sortTable}
+                  ></SortIcon>
+                </th>
+                <th>
+                  Salary{" "}
+                  <SortIcon
+                    value="salary"
+                    sortColName={this.state.sortColName}
+                    sortOrder={this.state.sortOrder}
+                    handleSortTable={this.sortTable}
+                  ></SortIcon>
+                </th>
                 <th>Status</th>
               </thead>
               <tbody>

@@ -71,3 +71,10 @@ select {
   width: 50%;
   background: #f1f1f1;
 }
+.sortIcon {
+  width: 10px;
+  height: 15px;
+  float: "right" !important;
+  cursor: pointer;
+  color: "#ffffff";
+}
