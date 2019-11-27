@@ -4,6 +4,7 @@ import * as employeeAction from "../../store/actions/employeeAction";
 import TableData from "../../components/TableData";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/Filter";
+import _ from "lodash";
 
 class EmployeeList extends Component {
   state = {
@@ -13,7 +14,9 @@ class EmployeeList extends Component {
       { text: "Active", value: "active" },
       { text: "Inactive", value: "inactive" }
     ],
-    defaultFilterItem: "all"
+    defaultFilterItem: "all",
+    sortColName: "name",
+    sortOrder: "asc"
   };
   componentDidMount() {
     this.getEmployeeList();
@@ -84,6 +87,77 @@ class EmployeeList extends Component {
       });
     }
   };
+  isVisibleIcon = value => {
+    if (this.state.sortColName.toString() === value.toString()) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  getIcon = () => {
+    return this.state.sortOrder;
+  };
+  sortTable = (sortColName, sortOrder) => {
+    if (this.state.empList.length > 0) {
+      let sortedEmployeeList = this.sortData(
+        this.state.empList,
+        sortColName,
+        sortOrder
+      );
+      this.setState({
+        empList: sortedEmployeeList,
+        sortColName: sortColName,
+        sortOrder: this.getOrderName(sortOrder)
+      });
+    }
+  };
+  getOrderName = sortOrder => {
+    let order = "asc";
+    if (sortOrder.toString() === "asc") {
+      order = "desc";
+    } else if (sortOrder.toString() === "desc") {
+      order = "asc";
+    }
+    return order;
+  };
+  sortData = (data, colName, sortOder) => {
+    let sortedList = _.sortBy(data, [colName]);
+    if ([sortOder].toString() === "desc") {
+      sortedList.reverse();
+    }
+    return sortedList;
+  };
+  renderIcon = value => {
+    if (value) {
+      if (this.isVisibleIcon(value)) {
+        return (
+          <span>
+            {this.getIcon().toString() === "asc" ? (
+              <i
+                class="fa fa-long-arrow-up"
+                aria-hidden="true"
+                onClick={() => this.sortTable(value, "asc")}
+              />
+            ) : (
+              <i
+                class="fa fa-long-arrow-down"
+                aria-hidden="true"
+                onClick={() => this.sortTable(value, "desc")}
+              />
+            )}
+          </span>
+        );
+      } else {
+        return (
+          <i
+            class="fa fa-long-arrow-down"
+            aria-hidden="true"
+            onClick={() => this.sortTable(value, "desc")}
+          />
+        );
+      }
+    }
+  };
   render() {
     return (
       <React.Fragment>
@@ -111,10 +185,10 @@ class EmployeeList extends Component {
           <div>
             <table>
               <thead>
-                <th>Name</th>
-                <th>Date of Birth</th>
-                <th>Age</th>
-                <th>Salary</th>
+                <th>Name {this.renderIcon("name")}</th>
+                <th>Date of Birth {this.renderIcon("dob")}</th>
+                <th>Age {this.renderIcon("age")}</th>
+                <th>Salary {this.renderIcon("salary")}</th>
                 <th>Status</th>
               </thead>
               <tbody>

@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider as StoreProvider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { persistor, store } from "./store";
+import "font-awesome/css/font-awesome.min.css";
 
 ReactDOM.render(
   <StoreProvider store={store}>
