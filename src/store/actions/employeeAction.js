@@ -21,13 +21,11 @@ export const getAllEmployeeList = () => {
       api()
         .get("employee")
         .then(response => {
-          debugger;
           dispatch(setEmployeeList(response.data));
           //  dispatch(setLoader(false));
           resolve(response);
         })
         .catch(error => {
-          debugger;
           //dispatch(setLoader(false));
           // dispatch(sendErrorNotice("Error!!!"));
           //   setTimeout(() => {

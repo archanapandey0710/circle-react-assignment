@@ -6,7 +6,6 @@ class Filter extends Component {
     quickSearch: ""
   };
   onFilter = filterText => {
-    debugger;
     this.setState({ quickSearch: filterText }, () => {
       this.props.handleFilter(filterText);
     });

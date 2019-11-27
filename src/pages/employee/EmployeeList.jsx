@@ -67,7 +67,12 @@ class EmployeeList extends Component {
         );
         break;
     }
-    this.setState({ empList: filteredEmployeeList });
+    let sortedEmployeeList = sortData(
+      filteredEmployeeList,
+      this.state.sortColName,
+      this.state.sortOrder
+    );
+    this.setState({ empList: sortedEmployeeList });
   };
   filterByStatus = filterValue => {
     let filteredEmployeeList = undefined;
@@ -89,9 +94,14 @@ class EmployeeList extends Component {
         default:
           filteredEmployeeList = this.props.employeeList;
       }
+      let sortedEmployeeList = sortData(
+        filteredEmployeeList,
+        this.state.sortColName,
+        this.state.sortOrder
+      );
       this.setState({
         defaultFilterItem: filterValue,
-        empList: filteredEmployeeList
+        empList: sortedEmployeeList
       });
     }
   };
@@ -141,14 +151,13 @@ class EmployeeList extends Component {
           <div>
             <h2>
               <span style={{ float: "left" }}>Employee List</span>
-              <button className="logout">Logout</button>
             </h2>
+            <button className="logout">Logout</button>
           </div>
           <br /> <br />
+          <br />
           <div>
-            <span style={{ width: "50%" }}>
-              <SearchBar handleQuickSearch={this.handleQuickSearch}></SearchBar>
-            </span>
+            <SearchBar handleQuickSearch={this.handleQuickSearch}></SearchBar>
             <span style={{ width: "50%" }}>
               <label style={{ marginLeft: "20px" }}>Filter By:</label>{" "}
               <Filter
