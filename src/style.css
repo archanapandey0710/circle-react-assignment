@@ -1,0 +1,73 @@
+body {
+  font-family: "Roboto-bold", sans-serif;
+}
+table {
+  width: 100%;
+}
+th {
+  background-color: #1565c0;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+tr:hover {
+  background-color: #5ca9f1;
+  color: #ffffff;
+}
+/* Set a style for all buttons */
+button {
+  background-color: #1565c0;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+input[type="text"]:focus {
+  border-color: #1565c0;
+  box-shadow: 0 0 8px 0 #1565c0;
+}
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.container {
+  width: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.logout {
+  background-color: red;
+  color: white;
+  width: 10%;
+  float: right;
+  font-weight: bold;
+}
+.searchTextBox {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+  background: #f1f1f1;
+}
