@@ -5,8 +5,7 @@ import TableData from "../../components/TableData";
 import SearchBar from "../../components/SearchBar";
 import Filter from "../../components/Filter";
 import SortIcon from "../../components/SortIcon";
-
-import _ from "lodash";
+import { sortData } from "../../utils/app-utils";
 
 class EmployeeList extends Component {
   state = {
@@ -15,6 +14,13 @@ class EmployeeList extends Component {
       { text: "All", value: "all" },
       { text: "Active", value: "active" },
       { text: "Inactive", value: "inactive" }
+    ],
+    tableHeader: [
+      { text: "Name", value: "name" },
+      { text: "Date of Birth", value: "dob" },
+      { text: "Age", value: "age" },
+      { text: "Salary", value: "salary" },
+      { text: "Status", value: "status" }
     ],
     defaultFilterItem: "all",
     sortColName: "name",
@@ -92,7 +98,7 @@ class EmployeeList extends Component {
 
   sortTable = (sortColName, sortOrder) => {
     if (this.state.empList.length > 0) {
-      let sortedEmployeeList = this.sortData(
+      let sortedEmployeeList = sortData(
         this.state.empList,
         sortColName,
         sortOrder
@@ -113,12 +119,20 @@ class EmployeeList extends Component {
     }
     return order;
   };
-  sortData = (data, colName, sortOder) => {
-    let sortedList = _.sortBy(data, [colName]);
-    if ([sortOder].toString() === "desc") {
-      sortedList.reverse();
-    }
-    return sortedList;
+  renderTableHeader = () => {
+    return this.state.tableHeader.map(item => (
+      <th key={item.value}>
+        {item.text}{" "}
+        {item.value.toString() === "status" ? null : (
+          <SortIcon
+            value={item.value}
+            sortColName={this.state.sortColName}
+            sortOrder={this.state.sortOrder}
+            handleSortTable={this.sortTable}
+          ></SortIcon>
+        )}
+      </th>
+    ));
   };
   render() {
     return (
@@ -146,45 +160,7 @@ class EmployeeList extends Component {
           <br />
           <div>
             <table>
-              <thead>
-                <th>
-                  Name{" "}
-                  <SortIcon
-                    value="name"
-                    sortColName={this.state.sortColName}
-                    sortOrder={this.state.sortOrder}
-                    handleSortTable={this.sortTable}
-                  ></SortIcon>
-                </th>
-                <th>
-                  Date of Birth{" "}
-                  <SortIcon
-                    value="dob"
-                    sortColName={this.state.sortColName}
-                    sortOrder={this.state.sortOrder}
-                    handleSortTable={this.sortTable}
-                  ></SortIcon>
-                </th>
-                <th>
-                  Age{" "}
-                  <SortIcon
-                    value="age"
-                    sortColName={this.state.sortColName}
-                    sortOrder={this.state.sortOrder}
-                    handleSortTable={this.sortTable}
-                  ></SortIcon>
-                </th>
-                <th>
-                  Salary{" "}
-                  <SortIcon
-                    value="salary"
-                    sortColName={this.state.sortColName}
-                    sortOrder={this.state.sortOrder}
-                    handleSortTable={this.sortTable}
-                  ></SortIcon>
-                </th>
-                <th>Status</th>
-              </thead>
+              <thead>{this.renderTableHeader()}</thead>
               <tbody>
                 <TableData data={this.state.empList}></TableData>
               </tbody>

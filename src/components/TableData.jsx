@@ -1,16 +1,42 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { getFormateDate } from "../utils/date-utils";
+import { formateAmount, formateAge } from "../utils/app-utils";
+import _ from "lodash";
 
 class TableData extends Component {
-  state = {};
+  state = {
+    status: [
+      {
+        text: "Active",
+        status: true
+      },
+      {
+        text: "Inactive",
+        status: false
+      }
+    ]
+  };
+  getStatus = status => {
+    let state = _.find(this.state.status, function(value) {
+      return value.status === status;
+    });
+    if (state) {
+      return state.text;
+    }
+  };
   renderData = () => {
     return this.props.data.map(item => (
       <tr key={item.id}>
         <td>{item.name}</td>
-        <td>{item.dob}</td>
-        <td>{item.age}</td>
-        <td>{item.salary}</td>
-        <td>{item.isActive}</td>
+        <td className="numberStyle">
+          {getFormateDate(item.dob, "YYYY-MM-DD")}
+        </td>
+        <td className="numberStyle">{formateAge(item.age)}</td>
+        <td className="numberStyle">{formateAmount(item.salary)}</td>
+        <td className={item.isActive ? "activeStatus" : "inactiveStatus"}>
+          {this.getStatus(item.isActive)}
+        </td>
       </tr>
     ));
   };

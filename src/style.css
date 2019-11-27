@@ -3,6 +3,7 @@ body {
 }
 table {
   width: 100%;
+  font-weight: 100;
 }
 th {
   background-color: #1565c0;
@@ -77,4 +78,15 @@ select {
   float: "right" !important;
   cursor: pointer;
   color: "#ffffff";
+}
+.numberStyle {
+  text-align: right;
+}
+.activeStatus {
+  color: green;
+  font-weight: bold;
+}
+.inactiveStatus {
+  color: red;
+  font-weight: bold;
 }
