@@ -164,7 +164,7 @@ class EmployeeList extends Component {
         <div className="container">
           <div>
             <h2>
-              <span style={{ float: "left" }}>Employee List</span>
+              <span className="floatLeft">Employee List</span>
             </h2>
             <button className="logout" onClick={() => this.props.onLogout()}>
               Logout
