@@ -47,7 +47,7 @@ class TableData extends Component {
       <React.Fragment>
         {this.props.data && this.props.data.length > 0
           ? this.renderData()
-          : "No Data Found !!!"}
+          : null}
       </React.Fragment>
     );
   }
