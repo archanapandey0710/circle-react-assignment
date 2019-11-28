@@ -22,8 +22,7 @@ class SortIcon extends Component {
           <span>
             {this.getIcon().toString() === "asc" ? (
               <i
-                className="fa fa-long-arrow-up"
-                style={{ cursor: "pointer", width: "10px", height: "15px" }}
+                className="fa fa-long-arrow-up sortIcon"
                 aria-hidden="true"
                 onClick={() =>
                   this.props.handleSortTable(this.props.value, "asc")
@@ -31,8 +30,7 @@ class SortIcon extends Component {
               />
             ) : (
               <i
-                className="fa fa-long-arrow-down"
-                style={{ cursor: "pointer", width: "10px", height: "15px" }}
+                className="fa fa-long-arrow-down sortIcon"
                 aria-hidden="true"
                 onClick={() =>
                   this.props.handleSortTable(this.props.value, "desc")
@@ -44,9 +42,8 @@ class SortIcon extends Component {
       } else {
         return (
           <i
-            className="fa fa-long-arrow-down"
+            className="fa fa-long-arrow-down sortIcon"
             aria-hidden="true"
-            style={{ cursor: "pointer", width: "10px", height: "15px" }}
             onClick={() => this.props.handleSortTable(this.props.value, "desc")}
           />
         );

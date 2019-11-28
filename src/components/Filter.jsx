@@ -23,7 +23,7 @@ class Filter extends Component {
     return (
       <React.Fragment>
         <select
-          style={{ width: "30%" }}
+          className="width30per"
           onChange={event => this.onFilter(event.target.value)}
         >
           {this.props.data && this.props.data.length > 0
