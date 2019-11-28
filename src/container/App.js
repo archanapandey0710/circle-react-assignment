@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import Routes from "../router";
 import Login from "../components/Login";
 import { connect } from "react-redux";
+import EmployeeList from "../pages/employee/EmployeeList";
 
 class App extends Component {
   renderContent = () => {
     if (this.props.isLoggedIn === true) {
       return (
         <div className="App">
-          <Routes></Routes>
+          <EmployeeList />
         </div>
       );
     } else {
