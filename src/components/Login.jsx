@@ -8,14 +8,17 @@ class Login extends Component {
     username: "admin",
     password: "admin"
   };
+
   componentDidMount() {}
+
   login = () => {
     if (this.state.username === "admin" && this.state.password === "admin") {
       this.props.onLogin(true);
     } else {
-      console.log("wrong username and password");
+      alert("wrong username and password");
     }
   };
+
   render() {
     return (
       <React.Fragment>
@@ -28,13 +31,22 @@ class Login extends Component {
             <input
               id="username"
               type="text"
-              width="100px"
               value={this.state.username}
+              onChange={event =>
+                this.setState({ username: event.target.value })
+              }
             />
           </div>
           <div>
             <label class="headingLabel">Password:</label>
-            <input id="password" type="password" value={this.state.password} />
+            <input
+              id="password"
+              type="password"
+              value={this.state.password}
+              onChange={event =>
+                this.setState({ password: event.target.value })
+              }
+            />
           </div>
           <div>
             <button onClick={() => this.login()}>Login</button>
@@ -44,9 +56,11 @@ class Login extends Component {
     );
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     onLogin: data => dispatch(loginAction.login(data))
   };
 };
+
 export default connect(null, mapDispatchToProps)(Login);

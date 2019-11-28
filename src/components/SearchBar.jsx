@@ -5,11 +5,13 @@ class SearchBar extends Component {
   state = {
     quickSearch: ""
   };
+
   onSeacrh = quickSearchText => {
     this.setState({ quickSearch: quickSearchText }, () => {
       this.props.handleQuickSearch(quickSearchText);
     });
   };
+
   render() {
     return (
       <React.Fragment>
@@ -24,4 +26,5 @@ class SearchBar extends Component {
     );
   }
 }
+
 export default SearchBar;

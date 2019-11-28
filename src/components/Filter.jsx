@@ -5,16 +5,19 @@ class Filter extends Component {
   state = {
     quickSearch: ""
   };
+
   onFilter = filterText => {
     this.setState({ quickSearch: filterText }, () => {
       this.props.handleFilter(filterText);
     });
   };
+
   renderData = () => {
     return this.props.data.map(item => (
       <option value={item.value}>{item.text}</option>
     ));
   };
+
   render() {
     return (
       <React.Fragment>

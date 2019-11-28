@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { getFormateDate } from "../utils/date-utils";
 import { formateAmount, formateAge } from "../utils/app-utils";
 import _ from "lodash";
@@ -17,6 +16,7 @@ class TableData extends Component {
       }
     ]
   };
+
   getStatus = status => {
     let state = _.find(this.state.status, function(value) {
       return value.status === status;
@@ -25,6 +25,7 @@ class TableData extends Component {
       return state.text;
     }
   };
+
   renderData = () => {
     return this.props.data.map(item => (
       <tr key={item.id}>
@@ -40,6 +41,7 @@ class TableData extends Component {
       </tr>
     ));
   };
+
   render() {
     return (
       <React.Fragment>
@@ -50,4 +52,5 @@ class TableData extends Component {
     );
   }
 }
+
 export default TableData;

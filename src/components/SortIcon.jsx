@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 class SortIcon extends Component {
   state = {};
+
   isVisibleIcon = value => {
     if (this.props.sortColName.toString() === value.toString()) {
       return true;
@@ -10,9 +11,11 @@ class SortIcon extends Component {
       return false;
     }
   };
+
   getIcon = () => {
     return this.props.sortOrder;
   };
+
   renderIcon = () => {
     if (this.props.value) {
       if (this.isVisibleIcon(this.props.value)) {
@@ -51,8 +54,10 @@ class SortIcon extends Component {
       }
     }
   };
+
   render() {
     return <React.Fragment>{this.renderIcon()}</React.Fragment>;
   }
 }
+
 export default SortIcon;

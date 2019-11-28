@@ -11,11 +11,13 @@ import { sortData } from "../../utils/app-utils";
 class EmployeeList extends Component {
   state = {
     empList: [],
+
     filterItems: [
       { text: "All", value: "all" },
       { text: "Active", value: "active" },
       { text: "Inactive", value: "inactive" }
     ],
+
     tableHeader: [
       { text: "Name", value: "name" },
       { text: "Date of Birth", value: "dob" },
@@ -23,8 +25,11 @@ class EmployeeList extends Component {
       { text: "Salary", value: "salary" },
       { text: "Status", value: "status" }
     ],
+
     defaultFilterItem: "all",
+
     sortColName: "name",
+
     sortOrder: "asc"
   };
 
@@ -37,11 +42,13 @@ class EmployeeList extends Component {
       this.setEmployeeList();
     });
   };
+
   setEmployeeList = () => {
     this.setState({
       empList: this.props.employeeList
     });
   };
+
   handleQuickSearch = quickSearchText => {
     let filteredEmployeeList = undefined;
     switch (this.state.defaultFilterItem) {
@@ -77,6 +84,7 @@ class EmployeeList extends Component {
     );
     this.setState({ empList: sortedEmployeeList });
   };
+
   filterByStatus = filterValue => {
     let filteredEmployeeList = undefined;
     if (filterValue) {
@@ -123,6 +131,7 @@ class EmployeeList extends Component {
       });
     }
   };
+
   getOrderName = sortOrder => {
     let order = "asc";
     if (sortOrder.toString() === "asc") {
@@ -132,6 +141,7 @@ class EmployeeList extends Component {
     }
     return order;
   };
+
   renderTableHeader = () => {
     return this.state.tableHeader.map(item => (
       <th key={item.value}>
@@ -147,6 +157,7 @@ class EmployeeList extends Component {
       </th>
     ));
   };
+
   render() {
     return (
       <React.Fragment>
@@ -185,6 +196,7 @@ class EmployeeList extends Component {
     );
   }
 }
+
 const mapStateToProps = state => {
   return {
     employeeList: state.employeeReducer.employeeList
@@ -192,10 +204,12 @@ const mapStateToProps = state => {
       : []
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     onGetEmployeeList: () => dispatch(employeeAction.getAllEmployeeList()),
     onLogout: () => dispatch(loginAction.logout())
   };
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(EmployeeList);

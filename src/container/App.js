@@ -20,6 +20,7 @@ class App extends Component {
       );
     }
   };
+
   render() {
     return <React.Fragment>{this.renderContent()}</React.Fragment>;
   }
@@ -31,7 +32,9 @@ const mapStateToProps = state => {
       : []
   };
 };
+
 const mapDispatchToProps = dispatch => {
   return {};
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
