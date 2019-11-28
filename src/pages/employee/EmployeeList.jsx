@@ -27,9 +27,11 @@ class EmployeeList extends Component {
     sortColName: "name",
     sortOrder: "asc"
   };
+
   componentDidMount() {
     this.getEmployeeList();
   }
+
   getEmployeeList = () => {
     this.props.onGetEmployeeList().then(res => {
       this.setEmployeeList();

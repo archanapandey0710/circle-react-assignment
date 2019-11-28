@@ -1,5 +1,4 @@
 import { LOGIN } from "./actionTypes";
-import api from "../../utils/backend-rest-api";
 
 const setIsLoggedIn = isLoggedIn => {
   return {
