@@ -13,7 +13,9 @@ class Filter extends Component {
 
   renderData = () => {
     return this.props.data.map(item => (
-      <option value={item.value}>{item.text}</option>
+      <option key={item.value} value={item.value}>
+        {item.text}
+      </option>
     ));
   };
 
