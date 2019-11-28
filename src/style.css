@@ -122,10 +122,10 @@ img.avatar {
   font-weight: bold;
   float: left;
 }
-.width50per {
+.left-half {
   width: 50%;
 }
-.marginLeft20px {
+.right-half {
   margin-left: 20px;
 }
 .floatLeft {

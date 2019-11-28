@@ -171,12 +171,13 @@ class EmployeeList extends Component {
             </button>
           </div>
           <br /> <br />
+          <br />
           <div>
-            <span className="width50per">
+            <span className="left-half">
               <SearchBar handleQuickSearch={this.handleQuickSearch}></SearchBar>
             </span>
-            <span className="width50per">
-              <label className="marginLeft20px">Filter By:</label>{" "}
+            <span className="right-half">
+              <label>Filter By:</label>{" "}
               <Filter
                 data={this.state.filterItems}
                 handleFilter={this.filterByStatus}
