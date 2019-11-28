@@ -1,16 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-// import "./index.css";
 import "./style.css";
 
 import App from "./container/App";
 import * as serviceWorker from "./serviceWorker";
 
-//store integration
 import { Provider as StoreProvider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 import { persistor, store } from "./store";
+
 import "font-awesome/css/font-awesome.min.css";
 
 ReactDOM.render(
@@ -22,7 +20,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

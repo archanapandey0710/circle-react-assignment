@@ -6,9 +6,11 @@ export function formateAmount(amount) {
     Math.max(((TotalAmount + "").split(".")[1] || "").length, 2)
   );
 }
+
 export function formateAge(age) {
   return parseInt(age);
 }
+
 export function sortData(data, colName, sortOder) {
   let sortedList = _.sortBy(data, [colName]);
   if ([sortOder].toString() === "desc") {

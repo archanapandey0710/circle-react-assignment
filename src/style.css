@@ -122,3 +122,9 @@ img.avatar {
   font-weight: bold;
   float: left;
 }
+.width50per {
+  width: 50%;
+}
+.marginLeft20px {
+  margin-left: 20px;
+}
