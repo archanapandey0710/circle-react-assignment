@@ -27,7 +27,7 @@ class Login extends Component {
             <img src={logo} alt="Avatar" className="avatar" />
           </div>
           <div>
-            <label class="headingLabel">User Name:</label>
+            <label className="headingLabel">User Name:</label>
             <input
               id="username"
               type="text"
@@ -38,7 +38,7 @@ class Login extends Component {
             />
           </div>
           <div>
-            <label class="headingLabel">Password:</label>
+            <label className="headingLabel">Password:</label>
             <input
               id="password"
               type="password"

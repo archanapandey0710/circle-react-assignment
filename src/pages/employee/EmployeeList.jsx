@@ -185,7 +185,9 @@ class EmployeeList extends Component {
           </div>
           <div>
             <table>
-              <thead>{this.renderTableHeader()}</thead>
+              <thead>
+                <tr>{this.renderTableHeader()}</tr>
+              </thead>
               <tbody>
                 <TableData data={this.state.empList}></TableData>
               </tbody>
