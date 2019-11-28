@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9d1f257af547c5f7a18c697071c08861",
+    "revision": "5c9bafad14c52891f8efdd856fe0e50b",
     "url": "/circle-react-assignment/index.html"
   },
   {
-    "revision": "ba6df4aee27ddedc2db0",
+    "revision": "703d37e3fdac282c9a06",
     "url": "/circle-react-assignment/static/css/2.23dd8e4f.chunk.css"
   },
   {
-    "revision": "5facd0ba98e9a469d151",
+    "revision": "2904a86dfb5b33afc228",
     "url": "/circle-react-assignment/static/css/main.6ad5e6e2.chunk.css"
   },
   {
-    "revision": "ba6df4aee27ddedc2db0",
-    "url": "/circle-react-assignment/static/js/2.f14fed66.chunk.js"
+    "revision": "703d37e3fdac282c9a06",
+    "url": "/circle-react-assignment/static/js/2.1fef605c.chunk.js"
   },
   {
-    "revision": "5facd0ba98e9a469d151",
-    "url": "/circle-react-assignment/static/js/main.d3573a1c.chunk.js"
+    "revision": "2904a86dfb5b33afc228",
+    "url": "/circle-react-assignment/static/js/main.7f389487.chunk.js"
   },
   {
     "revision": "cb4d672a3e0ff130889b",
