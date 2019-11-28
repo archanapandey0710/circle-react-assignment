@@ -31,7 +31,7 @@ class TableData extends Component {
       <tr key={item.id}>
         <td>{item.name}</td>
         <td className="numberStyle">
-          {getFormateDate(item.dob, "YYYY-MM-DD")}
+          {getFormateDate(item.dob, "DD-MM-YYYY")}
         </td>
         <td className="numberStyle">{formateAge(item.age)}</td>
         <td className="numberStyle">{formateAmount(item.salary)}</td>
